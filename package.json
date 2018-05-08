@@ -1,0 +1,75 @@
+{
+	"name": "apicli",
+	"version": "0.0.0",
+	"description": "api explorer cli",
+	"license": "MIT",
+	"repository": "jedahan/apicli",
+	"author": {
+		"name": "Jonathan Dahan",
+		"email": "hi@jonathan.is",
+		"url": "jedahan.com"
+	},
+	"bin": "cli.js",
+	"engines": {
+		"node": ">=6"
+	},
+	"scripts": {
+		"test": "xo && ava"
+	},
+	"files": [
+		"cli.js",
+		"ui.js"
+	],
+	"keywords": [
+		""
+	],
+	"dependencies": {
+		"apollo-boost": "^0.1.6",
+		"apollo-link-state": "^0.4.1",
+		"graphql": "^0.13.2",
+		"graphql-request": "^1.6.0",
+		"graphql-tag": "^2.9.2",
+		"ink": "^0.2.1",
+		"ink-text-input": "^1.1.1",
+		"meow": "^3.7.0",
+		"node-fetch": "^2.1.2",
+		"prop-types": "^15.5.10"
+	},
+	"devDependencies": {
+		"ava": "^0.20.0",
+		"babel-plugin-transform-react-jsx": "^6.24.1",
+		"eslint-config-xo-react": "^0.13.0",
+		"eslint-plugin-react": "^7.1.0",
+		"import-jsx": "^1.2.0",
+		"xo": "^0.18.2"
+	},
+	"ava": {
+		"babel": {
+			"presets": [
+				"@ava/stage-4"
+			],
+			"plugins": [
+				[
+					"transform-react-jsx",
+					{
+						"pragma": "h",
+						"useBuiltIns": true
+					}
+				]
+			]
+		}
+	},
+	"xo": {
+		"extends": [
+			"xo-react"
+		],
+		"rules": {
+			"react/no-unused-prop-types": 1
+		},
+		"settings": {
+			"react": {
+				"pragma": "h"
+			}
+		}
+	}
+}
