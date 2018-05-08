@@ -57,10 +57,14 @@ class SearchQuery extends Component {
 	handleSubmit(value) {
 	  request('http://localhost:4000/graphql', value)
   		.then(data => {
-  		  this.setState({
-  		    query: value,
-  		    result: data && data.hello && data.hello.there
-  		  })
+  		  const state = { query: value }
+  		  if (data.hello) {
+   		    state.result = data.hello.there
+    		} else {
+    		  data = data.objects[0]
+    		  state.result = `${data.title} by ${data.maker}`
+    		}
+    		this.setState(state)
   		})
   		.catch(console.error)
   }
